@@ -9,6 +9,8 @@ class RaptorOptions {
     const INDEX_RAPTORIZE_QUICKPRESS = 'index-raptorize-quickpress';
     const INDEX_RAPTORIZE_ADMIN_EDITING = 'index-raptorize-admin-editing';
     const RESIZE_IMAGES_AUTOMATICALLY = 'resize-images-automatically';
+    const ALLOW_ADDITIONAL_EDITOR_SELECTORS = 'allow-additional-raptor-classes';
+    const ADDITIONAL_EDITOR_SELECTORS = 'additional-raptor-classes';
 
     private $options = null;
 
@@ -30,7 +32,9 @@ class RaptorOptions {
                 self::INDEX_ALLOW_IN_PLACE_EDITING => '1',
                 self::INDEX_RAPTORIZE_QUICKPRESS => '0',
                 self::INDEX_RAPTORIZE_ADMIN_EDITING => '1',
-                self::RESIZE_IMAGES_AUTOMATICALLY => '1'
+                self::RESIZE_IMAGES_AUTOMATICALLY => '1',
+                self::ALLOW_ADDITIONAL_EDITOR_SELECTORS => '0',
+                self::ADDITIONAL_EDITOR_SELECTORS => ''
             );
             update_option(self::OPTIONS, $this->options);
         }
@@ -57,5 +61,13 @@ class RaptorOptions {
 
     public function resizeImagesAutomatically() {
         return $this->getOption(self::RESIZE_IMAGES_AUTOMATICALLY);
+    }
+
+    public function allowAdditionalEditorSelectors() {
+        return $this->getOption(self::ALLOW_ADDITIONAL_EDITOR_SELECTORS);
+    }
+
+    public function additionalEditorSelectors() {
+        return $this->getOption(self::ADDITIONAL_EDITOR_SELECTORS);
     }
 }
