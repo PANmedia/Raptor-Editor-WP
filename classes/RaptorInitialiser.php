@@ -36,18 +36,24 @@ class RaptorInitialiser {
             // Admin page
             $this->admin = new RaptorAdmin($this->options);
             add_action('admin_menu', array(&$this->admin, 'setupMenu'));
-            // add_action('admin_init', array(&$this->admin, 'registerSettings'));
-
-            // add_filter('plugin_action_links_wp-raptor', array(&$this->admin, 'pluginLinks') );
 
             // Post editing
-            if ($this->options->raptorizeQuickpress() || $this->options->raptorizeAdminEditing()){
+            if ($this->options->raptorizeQuickpress() ||
+                $this->options->raptorizeAdminEditing() ||
+                $this->options->allowAdditionalEditorSelectors()){
+
                 add_action('admin_print_scripts', array(&$this->raptor, 'removeNativeEditors'));
+
                 if ($this->options->raptorizeQuickpress()) {
                     add_action('admin_print_scripts', array(&$this->raptor, 'addAdminQuickPressJs'));
                 }
+
                 if ($this->options->raptorizeAdminEditing()) {
                     add_action('admin_print_scripts', array(&$this->raptor, 'addAdminPostJs'));
+                }
+
+                if ($this->options->allowAdditionalEditorSelectors()) {
+                    add_action('admin_print_scripts', array(&$this->raptor, 'addAdminAdditionalEditorSelectorsJs'));
                 }
             }
         }
@@ -59,8 +65,5 @@ class RaptorInitialiser {
             $this->save = new RaptorSave();
             add_action('wp_ajax_'.RaptorSave::SAVE_POSTS, array(&$this->save, 'savePosts'));
         }
-
-        // add_action('wp_ajax_nopriv_my'.RaptorSave::SAVE_POSTS, array(&$this->save, 'savePosts'));
-        // add_action('wp_ajax_my'.RaptorSave::SAVE_COMMENTS, array(&$this->save, 'saveComments'));
     }
 }
