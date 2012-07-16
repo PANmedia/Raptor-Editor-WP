@@ -31,11 +31,21 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 
 == Changelog ==
 
+= 1.1.15 =
+* Include jQuery UI Smoothness theme.
+* Updated to Raptor 0.0.9.
+* Fixed minor issue causing quickpress' Raptor Editor to not completely fill its container.
+* Added option to apply Raptor Editor to additional textareas by specifying a jQuery selector, thanks Rotten Elf for suggesting this (http://wordpress.org/support/profile/rotten-elf).
+
 = 1.1.14 =
 * Disabled debugging
 
-= 1.1.12/1.1.13 = 
+= 1.1.12/1.1.13 =
 * Fixed issue preventing plugin from activating.
+
+= 1.1.11 =
+* Refactored option management code.
+* Added option to control whether Raptor Editor will attempt to resize an inserted image when editing in place if the image is too large for the post's containing element.
 
 = 1.1.11 =
 * Refactored option management code.
