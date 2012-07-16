@@ -3,7 +3,6 @@
 }
 .raptor-settings-form {
     width: 60%;
-    /*width: 400px;*/
     margin-right: 20px;
     float: left;
 }
@@ -13,9 +12,12 @@
     background-position: right bottom;
     float: left;
     width: 30%;
-/*    width: 400px;*/
 }
 
 .raptor-settings-information p:last-child {
     margin-bottom: 245px;
+}
+
+#raptor-admin-additional-classes {
+	width: 100%;
 }
