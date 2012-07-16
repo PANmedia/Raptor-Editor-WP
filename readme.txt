@@ -4,7 +4,7 @@ Donate link: N/A
 Tags: content editing, media library
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 1.0.14
+Stable tag: 1.0.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
