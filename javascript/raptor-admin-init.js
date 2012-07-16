@@ -1,7 +1,9 @@
 (function($) {
-    $('#post-body #content').editor({
+    if (!$(raptorAdmin.selector).length) return;
+    $(raptorAdmin.selector).editor({
         replace: true,
         autoEnable: true,
+        unify: false,
         uiOrder: [
             ['showGuides'],
             ['viewSource'],

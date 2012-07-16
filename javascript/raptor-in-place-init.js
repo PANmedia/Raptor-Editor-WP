@@ -1,4 +1,5 @@
 (function($) {
+    if (!$('.raptor-editable-post').length) return;
     $('.raptor-editable-post').editor({
         uiOrder: [
             ['save', 'cancel'],
@@ -61,6 +62,7 @@
                 id: {
                     attr: 'data-post_id'
                 },
+                postName: raptorInPlace.action,
                 ajax: {
                     url: raptorInPlace.url,
                     type: 'post',
