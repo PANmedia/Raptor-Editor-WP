@@ -1,4 +1,5 @@
 (function($) {
+    if (!$('#quick-press #content').length) return;
     $('#quick-press #content').css({ width: '100%' }).editor({
         replace: true,
         autoEnable: true,
