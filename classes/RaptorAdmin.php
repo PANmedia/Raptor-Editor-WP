@@ -25,6 +25,7 @@ class RaptorAdmin {
 
         wp_register_style('raptor-admin-styles', plugins_url('css/admin/style.css', dirname(__FILE__)), false, '0.0.3');
         wp_enqueue_style('raptor-admin-styles');
+
         include RAPTOR_ROOT.'/views/admin/index.php';
     }
 }
