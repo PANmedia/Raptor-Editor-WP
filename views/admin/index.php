@@ -30,6 +30,23 @@
                         <input id="raptor-admin-post-editing" type="checkbox" value="1" name="<?php echo RaptorOptions::INDEX_RAPTORIZE_ADMIN_EDITING; ?>" <?php if ($this->options->raptorizeAdminEditing()): ?>checked="checked"<?php endif; ?> />
                         Edit posts on the main admin page
                     </label>
+                    <hr/>
+                    <br/>
+                    <label for="raptor-admin-allow-additional-classes">
+                        <input id="raptor-admin-allow-additional-classes" type="checkbox" value="1" name="<?php echo RaptorOptions::ALLOW_ADDITIONAL_EDITOR_SELECTORS; ?>" <?php if ($this->options->allowAdditionalEditorSelectors()): ?>checked="checked"<?php endif; ?> />
+                        Edit elements selected by the following jQuery selectors (<em>admin pages only</em>)
+                    </label>
+                    <br/>
+                    <input <?php if (!$this->options->allowAdditionalEditorSelectors()) echo 'disabled="disabled"'; ?> id="raptor-admin-additional-classes" type="text" name="<?php echo RaptorOptions::ADDITIONAL_EDITOR_SELECTORS; ?>" value="<?php echo $this->options->additionalEditorSelectors(); ?>" />
+                    <br/>
+                    <em>What is a <a href="http://www.tutorialspoint.com/jquery/jquery-selectors.htm" target="_blank">jQuery Selector</a>?</em>
+                    <script type="text/javascript">
+                        (function($) {
+                            $('#raptor-admin-allow-additional-classes').change(function() {
+                                $('#raptor-admin-additional-classes').attr('disabled', $(this).is(':checked') ? null : 'disabled');
+                            });
+                        })(jQuery);
+                    </script>
                 </div>
                 <div id="raptor-options-editor">
                     <label for="raptor-admin-resize-images">
