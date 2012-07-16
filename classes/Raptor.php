@@ -32,7 +32,7 @@ class Raptor {
                 ));
 
             // Theme
-            wp_register_style('jquery-ui-smoothness', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css', false, '1.8.16');
+            wp_register_style('jquery-ui-smoothness', plugins_url('css/jquery-ui/jquery-ui-smoothness-1.8.16.css', dirname(__FILE__)), false, '1.8.16');
             wp_enqueue_style('jquery-ui-smoothness');
 
             wp_register_style('jquery-raptor-theme', plugins_url('css/raptor-theme.css', dirname(__FILE__)), false, '0.0.3');
