@@ -1,8 +1,22 @@
 <?php
-
+/**
+ * Prepare Raptor CSS & JavaScript.
+ */
 class Raptor {
 
+    /**
+     * @var boolean True if Raptor editor JavaScript has been queued.
+     */
     public $raptorQueued = false;
+    /**
+     * @var boolean True if admin CSS has been queued.
+     */
+    public $adminCss = false;
+    public $options = null;
+
+    public function __construct($options) {
+        $this->options = $options;
+    }
 
     public function addRaptor() {
         if (!$this->raptorQueued) {
@@ -27,7 +41,7 @@ class Raptor {
                 ));
 
             // Theme
-            wp_register_style('jquery-ui-smoothness', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css', false, '1.8.16');
+            wp_register_style('jquery-ui-smoothness', plugins_url('css/jquery-ui/jquery-ui-smoothness-1.8.16.css', dirname(__FILE__)), false, '1.8.16');
             wp_enqueue_style('jquery-ui-smoothness');
 
             wp_register_style('jquery-raptor-theme', plugins_url('css/raptor-theme.css', dirname(__FILE__)), false, '0.0.3');
@@ -36,17 +50,47 @@ class Raptor {
         $this->raptorQueued = true;
     }
 
+    /**
+     * Prepare & enqueue Raptor admin CSS.
+     */
+    private function addAdminCss() {
+        if (!$this->adminCss) {
+            wp_register_style('raptor-admin-css', plugins_url('css/raptor-admin.css', dirname(__FILE__)), false, '1.0.0');
+            wp_enqueue_style('raptor-admin-css');
+            $this->adminCss = true;
+        }
+    }
+
     public function addAdminPostJs() {
         $this->addRaptor();
+        $this->addAdminCss();
         wp_enqueue_script('raptor-admin-init', plugins_url('javascript/raptor-admin-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
-        wp_register_style('raptor-admin-css', plugins_url('css/raptor-admin.css', dirname(__FILE__)), false, '1.0.0');
-        wp_enqueue_style('raptor-admin-css');
+        wp_localize_script('raptor-admin-init', 'raptorAdmin',
+                array(
+                    'allowOversizeImages' => $this->options->resizeImagesAutomatically(),
+                    'selector' => '#post-body #content'
+                ));
+    }
+
+    public function addAdminAdditionalEditorSelectorsJs() {
+        $this->addRaptor();
+        $this->addAdminCss();
+        wp_enqueue_script('raptor-admin-additional-editor-selector-init', plugins_url('javascript/raptor-admin-additional-editor-selector-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
+        wp_localize_script('raptor-admin-additional-editor-selector-init', 'raptorAdminAdditionalEditorSelector',
+                array(
+                    'allowOversizeImages' => $this->options->resizeImagesAutomatically(),
+                    'selector' => $this->options->additionalEditorSelectors()
+                ));
     }
 
     public function addAdminQuickPressJs() {
         $this->addRaptor();
-
         wp_enqueue_script('raptor-admin-quickpress-init', plugins_url('javascript/raptor-quickpress-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
+        wp_enqueue_script('raptor-admin-quickpress-init', plugins_url('javascript/raptor-in-place-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
+        wp_localize_script('raptor-admin-quickpress-init', 'raptorQuickpress',
+                array(
+                    'allowOversizeImages' => $this->options->resizeImagesAutomatically()
+                ));
         wp_register_style('raptor-quickpress-css', plugins_url('css/raptor-quickpress.css', dirname(__FILE__)), false, '1.0.0');
         wp_enqueue_style('raptor-quickpress-css');
     }
@@ -54,11 +98,12 @@ class Raptor {
     public function addInPlacePostJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-in-place-init', plugins_url('javascript/raptor-in-place-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
-        wp_localize_script('raptor-in-place-init', 'raptorInPlaceSave',
+        wp_localize_script('raptor-in-place-init', 'raptorInPlace',
                 array(
                     'url' => admin_url('admin-ajax.php'),
                     'nonce' => wp_create_nonce(RaptorSave::SAVE_POSTS_NONCE),
                     'action' => RaptorSave::SAVE_POSTS,
+                    'allowOversizeImages' => $this->options->resizeImagesAutomatically()
                 ));
 
         wp_register_style('raptor-in-place-css', plugins_url('css/raptor-in-place.css', dirname(__FILE__)), false, '1.0.0');
@@ -81,7 +126,9 @@ class Raptor {
      */
     public function removeNativeEditors() {
         wp_deregister_script('tiny_mce');
-        wp_deregister_script('quicktags');
+        // Include CSS to display:none the quicktag toolbar
+        wp_register_style('raptor-remove-native-editors', plugins_url('css/raptor-remove-native-editors.css', dirname(__FILE__)), false, '1.0.15');
+        wp_enqueue_style('raptor-remove-native-editors');
     }
 
     /**
