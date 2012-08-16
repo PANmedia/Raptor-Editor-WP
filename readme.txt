@@ -3,8 +3,8 @@ Contributors: Michael Robinson
 Donate link: N/A
 Tags: content editing, media library
 Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: 1.0.7
+Tested up to: 3.4.1
+Stable tag: 1.0.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,41 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 
 == Changelog ==
 
-= 1.0.7 =
+= 1.1.15 =
+* Updated to Raptor 0.0.19.
+* Hotkey support.
+* Stability improvements.
+
+= 1.1.15 =
+* Include jQuery UI Smoothness theme.
+* Updated to Raptor 0.0.9.
+* Fixed minor issue causing quickpress' Raptor Editor to not completely fill its container.
+* Added option to apply Raptor Editor to additional textareas by specifying a jQuery selector, thanks Rotten Elf for suggesting this (http://wordpress.org/support/profile/rotten-elf).
+
+= 1.1.14 =
+* Disabled debugging
+
+= 1.1.12/1.1.13 =
+* Fixed issue preventing plugin from activating.
+
+= 1.1.11 =
+* Refactored option management code.
+* Added option to control whether Raptor Editor will attempt to resize an inserted image when editing in place if the image is too large for the post's containing element.
+
+= 1.1.11 =
+* Refactored option management code.
+* Added option to control whether Raptor Editor will attempt to resize an inserted image when editing in place if the image is too large for the post's containing element.
+
+= 1.0.10 =
+* Fixed "Not able to open any bars on dashboard" bug, thanks to popwireless for reporting this (http://wordpress.org/support/topic/plugin-raptor-editor-not-able-to-open-any-bars-on-dashboard).
+* Updated Raptor Editor to version 0.0.8b.
+* Minor styling fixes.
+* Enabled tag-change menu.
+
+= 1.0.9 =
+* Removed some debug statements from the edit in place JavaScript
+
+= 1.0.8 =
 * Updated admin page styling
 * Fixed issue with __DIR__ in PHP versions < 5.3
 
