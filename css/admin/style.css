@@ -2,7 +2,8 @@
     margin: 30px 0 0 30px;
 }
 .raptor-settings-form {
-    width: 400px;
+    width: 60%;
+    margin-right: 20px;
     float: left;
 }
 .raptor-settings-information {
@@ -10,9 +11,13 @@
     background-repeat: no-repeat;
     background-position: right bottom;
     float: left;
-    width: 400px;
+    width: 30%;
 }
 
 .raptor-settings-information p:last-child {
     margin-bottom: 245px;
+}
+
+#raptor-admin-additional-classes {
+	width: 100%;
 }
