@@ -1,4 +1,5 @@
 (function($) {
+    if (!$('#comment').length) return;
     $('#comment').editor({
         uiOrder: [
             ['viewSource'],

@@ -1,4 +1,5 @@
 (function($) {
+    if (!$('.raptor-editable-post').length) return;
     $('.raptor-editable-post').editor({
         uiOrder: [
             ['save', 'cancel'],
@@ -16,7 +17,7 @@
             ['link', 'unlink'],
             ['insertFile'],
             ['floatLeft', 'floatNone', 'floatRight'],
-            ['tag-menu']
+            ['tagMenu']
         ],
         enableUi: false,
         ui: {
@@ -61,22 +62,23 @@
                 id: {
                     attr: 'data-post_id'
                 },
-                postName: raptorInPlaceSave.action,
+                postName: raptorInPlace.action,
                 ajax: {
-                    url: raptorInPlaceSave.url,// + '?action=' + raptorInPlaceSave.postName,
+                    url: raptorInPlace.url,
                     type: 'post',
                     cache: false,
                     data: function(id, contentData) {
-                        console.log(arguments);
                         var data = {
-                            action: raptorInPlaceSave.action,
+                            action: raptorInPlace.action,
                             posts: contentData,
-                            nonce: raptorInPlaceSave.nonce
+                            nonce: raptorInPlace.nonce
                         };
-                        console.log(data);
                         return data;
                     }
                 }
+            },
+            imageResize: {
+                allowOversizeImages: raptorInPlace.allowOversizeImages
             }
         }
     });
