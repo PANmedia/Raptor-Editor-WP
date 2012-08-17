@@ -1,4 +1,4 @@
-(function($) {
+raptor(function($) {
     if (!$('#comment').length) return;
     $('#comment').editor({
         uiOrder: [
@@ -42,4 +42,4 @@
             }
         }
     });
-})(jQuery);
+});

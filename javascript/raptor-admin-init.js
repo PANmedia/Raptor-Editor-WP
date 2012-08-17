@@ -1,4 +1,4 @@
-(function($) {
+raptor(function($) {
     if (!$(raptorAdmin.selector).length) return;
     $(raptorAdmin.selector).editor({
         replace: true,
@@ -63,4 +63,4 @@
             }
         }
     });
-})(jQuery);
+});

@@ -1,4 +1,4 @@
-(function($) {
+raptor(function($) {
     if (!$('.raptor-editable-post').length) return;
     $('.raptor-editable-post').editor({
         uiOrder: [
@@ -82,4 +82,4 @@
             }
         }
     });
-})(jQuery);
+});

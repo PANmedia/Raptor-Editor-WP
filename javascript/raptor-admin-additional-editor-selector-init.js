@@ -1,4 +1,4 @@
-(function($) {
+raptor(function($) {
     // Allow only textareas
     var textareas = $(raptorAdminAdditionalEditorSelector.selector).filter('textarea');
     if (!textareas.length) return;
@@ -68,4 +68,4 @@
             }
         });
     });
-})(jQuery);
+});
