@@ -2,7 +2,7 @@
  * @fileOverview UI Components for invoking wordpress media library
  * @author Michael Robinson michael@panmedia.co.nz
  */
-(function($) {
+raptor(function($) {
 
     $.ui.editor.registerUi({
 
@@ -35,11 +35,8 @@
                 var ui = this;
                 window.send_to_editor = function(html) {
 
-                    console.log(html);
-                    console.log(ui.editor);
-
-                    ui.editor.restoreSelection();
-                    ui.editor.replaceSelection(html);
+                    $.ui.editor.selectionRestore();
+                    $.ui.editor.selectionReplace(html);
 
                     ui.dialog.dialog('destroy');
                     ui.dialog = null;
@@ -48,7 +45,8 @@
 
             show: function() {
                 var ui = this;
-                ui.editor.saveSelection();
+
+                $.ui.editor.selectionSave();
                 this.dialog = $('<div style="display:none"><iframe src="' + raptorMediaLibrary.url + '?type=image&TB_iframe=true" /></div>').appendTo('body');
                 this.dialog.dialog({
                     title: 'Media Library',
@@ -66,7 +64,7 @@
                         ui.resizeIframe();
                     },
                     close: function() {
-                        ui.editor.restoreSelection();
+                        $.ui.editor.selectionRestore();
                         if (ui.dialog) {
                             ui.dialog.dialog('destroy');
                             ui.dialog = null;
@@ -75,8 +73,9 @@
                 });
             },
             resizeIframe: function() {
-                $(this.dialog).find('iframe').height($(this.dialog).height()-30);  $(this.dialog).find('iframe').width($(this.dialog).width());
+                $(this.dialog).find('iframe').height($(this.dialog).height() - 30);
+                $(this.dialog).find('iframe').width($(this.dialog).width());
             }
         }
     });
-})(jQuery);
+});

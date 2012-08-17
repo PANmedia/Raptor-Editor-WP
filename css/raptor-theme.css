@@ -500,30 +500,8 @@ html body div.ui-wrapper div.ui-dialog-titlebar a.ui-dialog-titlebar-close span.
  * @author Michael Robinson <michael@panmedia.co.nz>
  * @author David Neilsen <david@panmedia.co.nz>
  */
-.ui-editor-click-to-edit-message {
-  padding: 10px;
-  border: 1px solid #D4D4D4;
-  font-size: 13px;
+.ui-editor-click-button-to-edit-button {
   z-index: 4000;
-  color: #000;
-  text-shadow: none;
-  -webkit-pointer-events: none;
-  -moz-pointer-events: none;
-  pointer-events: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZmZmMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RhZjJkNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f2fff2), color-stop(100%, #daf2d7));
-  background: -webkit-linear-gradient(top, #f2fff2, #daf2d7);
-  background: -moz-linear-gradient(top, #f2fff2, #daf2d7);
-  background: -o-linear-gradient(top, #f2fff2, #daf2d7);
-  background: linear-gradient(top, #f2fff2, #daf2d7);
-  -webkit-box-shadow: 0px 2px 10px #cccccc;
-  -moz-box-shadow: 0px 2px 10px #cccccc;
-  box-shadow: 0px 2px 10px #cccccc;
   -webkit-transition: opacity 0.5s;
   -webkit-transition-delay: 0s;
   -moz-transition: opacity 0.5s 0s;
@@ -532,18 +510,35 @@ html body div.ui-wrapper div.ui-dialog-titlebar a.ui-dialog-titlebar-close span.
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0; }
 
-.ui-editor-click-to-edit-visible {
+.ui-editor-click-button-to-edit-visible {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1; }
 
-.ui-editor-click-to-edit-highlight {
-  cursor: pointer;
+.ui-editor-click-button-to-edit-highlight {
   outline: 1px dotted rgba(0, 0, 0, 0.5);
   -webkit-transition: all 0.5s;
   -webkit-transition-delay: 0s;
   -moz-transition: all 0.5s 0s;
   -o-transition: all 0.5s 0s;
   transition: all 0.5s 0s; }
+
+/**
+ * Basic color picker plugin.
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.ui-editor-color-picker-basic-select .ui-editor-selectmenu-menu {
+  min-width: 100px; }
+
+.ui-editor-color-picker-basic-select span {
+  padding-left: 2px; }
+
+.ui-editor-color-picker-basic-swatch {
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin-top: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.2); }
 
 /**
  * Debug plugin
@@ -1096,7 +1091,9 @@ html body div.ui-wrapper div.ui-dialog-titlebar a.ui-dialog-titlebar-close span.
   box-orient: vertical;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  border: 1px solid #C2C2C2;
+  border-top: none; }
 
 .ui-editor-paste-panel-tabs > div > textarea.ui-editor-paste-area {
   -webkit-box-flex: 1;
@@ -1107,6 +1104,11 @@ html body div.ui-wrapper div.ui-dialog-titlebar a.ui-dialog-titlebar-close span.
   display: -moz-box;
   display: -ms-box;
   display: box; }
+
+.ui-editor-paste-panel-tabs > div > textarea,
+.ui-editor-paste-panel-tabs > div > .ui-editor-paste-area {
+  border: none;
+  padding: 2px; }
 
 /**
  * Raptorize plugin
@@ -1303,3 +1305,38 @@ html body div.ui-wrapper div.ui-dialog-titlebar a.ui-dialog-titlebar-close span.
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+/**
+ * Basic color picker plugin default colors.
+ *
+ * @author David Neilsen <david@panmedia.co.nz>
+ */
+.cms-white {
+  color: #ffffff; }
+
+.cms-black {
+  color: #000000; }
+
+.cms-blue {
+  color: #4f81bd; }
+
+.cms-red {
+  color: #c0504d; }
+
+.cms-green {
+  color: #9bbb59; }
+
+.cms-purple {
+  color: #8064a2; }
+
+.cms-orange {
+  color: #f79646; }
+
+.cms-grey {
+  color: #999; }
+
+
+.ui-editor-image-resize-resize-button {
+    width: 20px;
+    height: 20px;
+}
