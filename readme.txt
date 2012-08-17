@@ -32,7 +32,7 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 == Changelog ==
 
 = 1.1.16 =
-* Updated Raptor to 0.0.20.
+* Updated Raptor to 0.0.19.
 * Fixed media library support.
 * Enabled image resizing - resize your images in place.
 * Changed to Raptor Editor no conflict build, should prevent JavaScript conflicts with other libraries / different jQuery versions.

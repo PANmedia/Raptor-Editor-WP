@@ -1,3 +1,4 @@
-.quicktags-toolbar, #post-status-info {
+.quicktags-toolbar, #post-status-info, #wp-content-editor-tools {
 	display: none!important;
 }
+
