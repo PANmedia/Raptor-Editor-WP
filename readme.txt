@@ -4,7 +4,7 @@ Donate link: N/A
 Tags: content editing, media library
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 1.0.17
+Stable tag: 1.0.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,13 +31,16 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 
 == Changelog ==
 
-= 1.1.16 =
+= 1.1.18 =
+* Added CSS override to ensure backend Raptor instances have legible text.
+
+= 1.1.17 =
 * Updated Raptor to 0.0.19.
 * Fixed media library support.
 * Enabled image resizing - resize your images in place.
 * Changed to Raptor Editor no conflict build, should prevent JavaScript conflicts with other libraries / different jQuery versions.
 
-= 1.1.15 =
+= 1.1.16 =
 * Updated to Raptor 0.0.19.
 * Hotkey support.
 * Stability improvements.
