@@ -4,7 +4,7 @@ Donate link: N/A
 Tags: content editing, media library
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 1.0.18
+Stable tag: 1.0.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,7 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 
 == Changelog ==
 
-= 1.1.18 =
+= 1.1.18/1.1.19 =
 * Added CSS override to ensure backend Raptor instances have legible text.
 
 = 1.1.17 =
