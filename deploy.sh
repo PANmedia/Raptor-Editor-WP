@@ -16,7 +16,6 @@ SVNPATH="/tmp/$PLUGINSLUG" # path to a temp SVN repo. No trailing slash required
 SVNURL="http://plugins.svn.wordpress.org/wp-raptor" # Remote SVN repo on wordpress.org, with no trailing slash
 SVNUSER="faceleg" # your svn username
 
-
 # Let's begin...
 echo ".........................................."
 echo

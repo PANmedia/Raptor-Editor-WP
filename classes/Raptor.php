@@ -22,7 +22,7 @@ class Raptor {
         if (!$this->raptorQueued) {
 
             // JavaScript
-            wp_enqueue_script('raptor', plugins_url('javascript/raptor.js', dirname(__FILE__)), 'jquery-ui', '0.0.3', true);
+            wp_enqueue_script('raptor', plugins_url('javascript/raptor.0deps.nc.min.js', dirname(__FILE__)), 'jquery-ui', '1.0.19', true);
 
             // Extra plugins
             wp_register_style('raptor-wordpress-media-library-css', plugins_url('javascript/plugins/wordpress-media-library/wordpress-media-library.css', dirname(__FILE__)), false, '1.0.0');
@@ -32,9 +32,10 @@ class Raptor {
                     'url' => admin_url('media-upload.php'),
                 ));
 
+
             // Theme
             wp_enqueue_style('raptor-wordpress-media-library-css');
-            wp_register_style('jquery-raptor-theme', plugins_url('css/raptor-theme.css', dirname(__FILE__)), false, '0.0.3');
+            wp_register_style('jquery-raptor-theme', plugins_url('css/raptor-theme.css', dirname(__FILE__)), false, '1.0.19');
             wp_enqueue_style('jquery-raptor-theme');
         }
         $this->raptorQueued = true;
@@ -62,6 +63,9 @@ class Raptor {
                 ));
     }
 
+    /**
+     * Add JavaScript required for additional editor initialisation.
+     */
     public function addAdminAdditionalEditorSelectorsJs() {
         $this->addRaptor();
         $this->addAdminCss();
@@ -73,6 +77,9 @@ class Raptor {
                 ));
     }
 
+    /**
+     * Add JavaScript required for quickpress initialisation.
+     */
     public function addAdminQuickPressJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-admin-quickpress-init', plugins_url('javascript/raptor-quickpress-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
@@ -85,6 +92,9 @@ class Raptor {
         wp_enqueue_style('raptor-quickpress-css');
     }
 
+    /**
+     * Add JavaScript required for in place post initialisation.
+     */
     public function addInPlacePostJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-in-place-init', plugins_url('javascript/raptor-in-place-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
@@ -100,6 +110,9 @@ class Raptor {
         wp_enqueue_style('raptor-in-place-css');
     }
 
+    /**
+     * Add JavaScript required for comment initialisation.
+     */
     public function addCommentsJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-comments', plugins_url('javascript/raptor-comments-init.js', dirname(__FILE__)), false, '1.0.0', true);
