@@ -22,7 +22,7 @@ class Raptor {
         if (!$this->raptorQueued) {
 
             // JavaScript
-            wp_enqueue_script('raptor', plugins_url('javascript/raptor.0deps.nc.min.js', dirname(__FILE__)), 'jquery-ui', '1.0.19', true);
+            wp_enqueue_script('raptor', plugins_url('javascript/raptor.0deps.nc.min.js', dirname(__FILE__)), 'jquery-ui', '1.0.20', true);
 
             // Extra plugins
             wp_register_style('raptor-wordpress-media-library-css', plugins_url('javascript/plugins/wordpress-media-library/wordpress-media-library.css', dirname(__FILE__)), false, '1.0.0');
@@ -35,7 +35,7 @@ class Raptor {
 
             // Theme
             wp_enqueue_style('raptor-wordpress-media-library-css');
-            wp_register_style('jquery-raptor-theme', plugins_url('css/raptor-theme.css', dirname(__FILE__)), false, '1.0.19');
+            wp_register_style('jquery-raptor-theme', plugins_url('css/raptor-theme.css', dirname(__FILE__)), false, '1.0.20');
             wp_enqueue_style('jquery-raptor-theme');
         }
         $this->raptorQueued = true;
